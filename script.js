@@ -8,7 +8,7 @@ let mailCheck = /^\S+@\S+.\S+$/;
 let isValid = false;
 let userName = "";
 
-
+//I'm a comment inside a JavaScript file
 
 for (const input of inputs) {
     input.addEventListener ("blur", function(event) { 
