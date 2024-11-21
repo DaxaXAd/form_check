@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+    
+}
+
+.input__form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    gap: 10px;
+}
+
+input {
+    background-color: #aaaaaa;
+}
+
+input:hover {
+    background-color: #eeeeee;
+}
+
+button {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 4px;
+
+}
