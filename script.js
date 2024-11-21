@@ -2,6 +2,7 @@ const form = document.getElementById('registrationForm');
 const input = document.querySelectorAll('input');
 const submit = document.querySelector('submit');
 const button = document.querySelector('button');
+const small = document.querySelector('.error-message').value;
 
 console.log(form);
 console.log(input);
@@ -20,22 +21,25 @@ console.log(button);
 // console.log(confirmPwd);
 
 
-let isValid = true;
+
 let mailCheck = /^\S+@\S+.\S+$/;
 
 
-button.addEventListener('click', function () {
-    document.addEventListener('submit', function (event) {
-        event.preventDefault();
 
-        if (input[0].value.length < 5) {
-            isValid = false;
-            // }else if (mailCheck.test(mail)) {
-            //     isValid = false;        
-        } else {
-            console.log(isValid);
-        }
-    });
+form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    let isValid = false;
+
+    if (input[0].value.length > 5) {
+        isValid = true;
+        small[0].innerText;        
+    } else {
+        
+    }
+    
+    if (mailCheck.test(input[1].value)) {
+        isValid = true;
+    }
+    console.log(isValid);    
 });
-
-
