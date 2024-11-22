@@ -5,7 +5,7 @@ let errors = document.querySelectorAll("small");
 
 
 let mailCheck = /^\S+@\S+.\S+$/;
-const numberCharac = /^(?=.[a-z])(?=.[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+const numberCharac = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,30}$/;
 let isValid = false;
 let userName = "";
 
@@ -97,7 +97,7 @@ console.log(numberCharac);
 
 
 
-// const regex = /^(?=.[a-z])(?=.[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+// const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,30}$/;
 
 
 
