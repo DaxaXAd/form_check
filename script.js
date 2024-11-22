@@ -5,48 +5,67 @@ let errors = document.querySelectorAll("small");
 
 
 let mailCheck = /^\S+@\S+.\S+$/;
+const numberCharac = /^(?=.[a-z])(?=.[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 let isValid = false;
 let userName = "";
 
+
 //I'm a comment inside a JavaScript file
+document.addEventListener('submit', function (event) {
+    if (isValid === false) {
+        console.log(isValid);
+        event.preventDefault();
+    } else {
+        
+        form.submit();
+        
+    }
+})
 
 for (const input of inputs) {
-    input.addEventListener ("blur", function(event) { 
-        event.preventDefault();       
-        
+    input.addEventListener("blur", function (event) {
+        event.preventDefault();
+
         let currentInput = event.target;
         errors = event.target;
-        
+
+        //==============================
         if (currentInput.id === "username") {
-            
+
             if (currentInput.value.length >= 5) {
-                isValid = true
-                console.log("username ok");                
+                // isValid = true
+                console.log("username ok");
             } else {
                 errors.innerHTML = "that's sad";
-                console.log(errors.innerHTML);                
+                console.log(errors.innerHTML);
             }
         }
-
+        //===============================
         if (currentInput.id === "email") {
-            
+
             if (mailCheck.test(currentInput.value)) {
-                isValid = true;
+                // isValid = true;
                 console.log("email ok");
             } else {
                 errors.innerHTML = "that's also sad";
                 console.log(errors.innerHTML);
-                
+
             }
         }
+        //=====================================
+        if (currentInput.id === "password") {
 
-        if (currentInput.id === "pass") {
-            
+            if (numberCharac.test(currentInput.value)) {
+                console.log("password accepted");
+            } else {
+                errors.innerHTML= "very sad";
+                console.log(errors.innerHTML);
+            }
         }
     })
-    
 }
 
+console.log(numberCharac);
 
 
 
@@ -78,7 +97,7 @@ for (const input of inputs) {
 
 
 
-
+// const regex = /^(?=.[a-z])(?=.[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 
 
 
