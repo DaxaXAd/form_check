@@ -12,7 +12,7 @@ let userName = "";
 
 for (const input of inputs) {
     input.addEventListener ("blur", function(event) { 
-        // event.preventDefault();       
+        event.preventDefault();       
         
         let currentInput = event.target;
         errors = event.target;
@@ -26,6 +26,21 @@ for (const input of inputs) {
                 errors.innerHTML = "that's sad";
                 console.log(errors.innerHTML);                
             }
+        }
+
+        if (currentInput.id === "email") {
+            
+            if (mailCheck.test(currentInput.value)) {
+                isValid = true;
+                console.log("email ok");
+            } else {
+                errors.innerHTML = "that's also sad";
+                console.log(errors.innerHTML);
+                
+            }
+        }
+
+        if (currentInput.id === "pass") {
             
         }
     })
