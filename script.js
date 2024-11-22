@@ -17,12 +17,12 @@ let confirmPwdValid = false;
 //I'm a comment inside a JavaScript file
 form.addEventListener('submit', function (event) {
     if (isValid === false) {
-        console.log(isValid);
+
         event.preventDefault();
     } else {
-        
+
         form.submit();
-        
+
     }
 })
 
@@ -31,70 +31,74 @@ for (const input of inputs) {
         event.preventDefault();
 
         let currentInput = event.target;
-        errors = event.target;
+        errors = currentInput.nextElementSibling;
 
         //==============================
         if (currentInput.id === "username") {
 
             if (currentInput.value.length >= 5) {
                 userNameValid = true;
-                console.log("username ok");
+                errors.textContent = " ";
+
             } else {
                 userNameValid = false;
-                errors.innerHTML = "that's sad";
-                console.log(errors.innerHTML);
-            }
-        }
-        //===============================
-        if (currentInput.id === "email") {
+                errors.textContent = "use a username valid";
 
-            if (mailCheck.test(currentInput.value)) {
-                mailValid = true;
-                console.log("email ok");
+            }
+            //===============================
+            if (currentInput.id === "email") {
+
+                if (mailCheck.test(currentInput.value)) {
+                    mailValid = true;
+                    errors.textContent = " ";
+
+                } else {
+                    mailValid = false;
+                    errors.innerHTML = "email invalid";
+
+
+                }
+            }
+            //=====================================
+            if (currentInput.id === "password") {
+
+                if (numberCharac.test(currentInput.value)) {
+
+                    pwd = currentInput.value;
+                    pwdValid = true;
+                    errors.textContent = " ";
+                } else {
+                    pwdValid = false;
+                    errors.innerHTML = "doesn't respond the conditions";
+
+                }
+            }
+            //=============================================
+            if (currentInput.id === "confirmPassword") {
+            * (currentInput.value === pwd);
+
+                if (currentInput.value === pwd) {
+
+                    confirmPwdValid = true;
+                    errors.textContent = " ";
+                } else {
+                    confirmPwdValid = false;
+                    errors.textContent = "incorrect, retry!";
+
+
+                }
+            }
+
+            if (userNameValid && mailValid && pwdValid && confirmPwdValid) {
+                isValid = true;
             } else {
-                mailValid = false;
-                errors.innerHTML = "that's also sad";
-                console.log(errors.innerHTML);
-
+                isValid = false;
             }
-        }
-        //=====================================
-        if (currentInput.id === "password") {
-
-            if (numberCharac.test(currentInput.value)) {
-                console.log("password accepted");
-                pwd = currentInput.value;
-                pwdValid = true;
-            } else {
-                pwdValid = false;
-                errors.innerHTML= "very sad";
-                console.log(errors.innerHTML);
-            }
-        }
-        //=============================================
-        if (currentInput.id === "confirmPassword") {
-            console.log(currentInput.value === pwd);
-            
-            if (currentInput.value === pwd ) {
-                console.log(currentInput.value);
-                confirmPwdValid = true;
-            } else {
-                confirmPwdValid = false;
-                errors.innerHTML = "totally sad";
-                console.log(errors.innerHTML);
-                
-            }
-        }
-
-        if(userNameValid  && mailValid  && pwdValid  && confirmPwdValid ) {
-            isValid = true;
-        } else {
-            isValid = false;
         }
     })
 }
 
-// console.log(numberCharac);
+
 
 
 
