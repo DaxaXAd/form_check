@@ -4,14 +4,18 @@ const button = document.querySelector("button");
 let errors = document.querySelectorAll("small");
 
 
-let mailCheck = /^\S+@\S+.\S+$/;
+const mailCheck = /^\S+@\S+.\S+$/;
 const numberCharac = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,30}$/;
+
 let isValid = false;
-let userName = "";
+let userNameValid = false;
+let mailValid = false;
+let pwdValid = false;
+let confirmPwdValid = false;
 
 
 //I'm a comment inside a JavaScript file
-document.addEventListener('submit', function (event) {
+form.addEventListener('submit', function (event) {
     if (isValid === false) {
         console.log(isValid);
         event.preventDefault();
@@ -33,9 +37,10 @@ for (const input of inputs) {
         if (currentInput.id === "username") {
 
             if (currentInput.value.length >= 5) {
-                // isValid = true
+                userNameValid = true;
                 console.log("username ok");
             } else {
+                userNameValid = false;
                 errors.innerHTML = "that's sad";
                 console.log(errors.innerHTML);
             }
@@ -44,9 +49,10 @@ for (const input of inputs) {
         if (currentInput.id === "email") {
 
             if (mailCheck.test(currentInput.value)) {
-                // isValid = true;
+                mailValid = true;
                 console.log("email ok");
             } else {
+                mailValid = false;
                 errors.innerHTML = "that's also sad";
                 console.log(errors.innerHTML);
 
@@ -57,15 +63,38 @@ for (const input of inputs) {
 
             if (numberCharac.test(currentInput.value)) {
                 console.log("password accepted");
+                pwd = currentInput.value;
+                pwdValid = true;
             } else {
+                pwdValid = false;
                 errors.innerHTML= "very sad";
                 console.log(errors.innerHTML);
             }
         }
+        //=============================================
+        if (currentInput.id === "confirmPassword") {
+            console.log(currentInput.value === pwd);
+            
+            if (currentInput.value === pwd ) {
+                console.log(currentInput.value);
+                confirmPwdValid = true;
+            } else {
+                confirmPwdValid = false;
+                errors.innerHTML = "totally sad";
+                console.log(errors.innerHTML);
+                
+            }
+        }
+
+        if(userNameValid  && mailValid  && pwdValid  && confirmPwdValid ) {
+            isValid = true;
+        } else {
+            isValid = false;
+        }
     })
 }
 
-console.log(numberCharac);
+// console.log(numberCharac);
 
 
 
