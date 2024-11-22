@@ -75,7 +75,7 @@ for (const input of inputs) {
             }
             //=============================================
             if (currentInput.id === "confirmPassword") {
-            * (currentInput.value === pwd);
+                (currentInput.value === pwd);
 
                 if (currentInput.value === pwd) {
 
