@@ -17,12 +17,12 @@ let confirmPwdValid = false;
 //I'm a comment inside a JavaScript file
 form.addEventListener('submit', function (event) {
     if (isValid === false) {
-
+        // console.log(isValid);
         event.preventDefault();
     } else {
-
+        
         form.submit();
-
+        
     }
 })
 
@@ -39,66 +39,66 @@ for (const input of inputs) {
             if (currentInput.value.length >= 5) {
                 userNameValid = true;
                 errors.textContent = " ";
-
+                // console.log("username ok");
             } else {
                 userNameValid = false;
                 errors.textContent = "use a username valid";
-
+                // console.log(errors.textContent);
             }
-            //===============================
-            if (currentInput.id === "email") {
+        }
+        //===============================
+        if (currentInput.id === "email") {
 
-                if (mailCheck.test(currentInput.value)) {
-                    mailValid = true;
-                    errors.textContent = " ";
-
-                } else {
-                    mailValid = false;
-                    errors.innerHTML = "email invalid";
-
-
-                }
-            }
-            //=====================================
-            if (currentInput.id === "password") {
-
-                if (numberCharac.test(currentInput.value)) {
-
-                    pwd = currentInput.value;
-                    pwdValid = true;
-                    errors.textContent = " ";
-                } else {
-                    pwdValid = false;
-                    errors.innerHTML = "doesn't respond the conditions";
-
-                }
-            }
-            //=============================================
-            if (currentInput.id === "confirmPassword") {
-                (currentInput.value === pwd);
-
-                if (currentInput.value === pwd) {
-
-                    confirmPwdValid = true;
-                    errors.textContent = " ";
-                } else {
-                    confirmPwdValid = false;
-                    errors.textContent = "incorrect, retry!";
-
-
-                }
-            }
-
-            if (userNameValid && mailValid && pwdValid && confirmPwdValid) {
-                isValid = true;
+            if (mailCheck.test(currentInput.value)) {
+                mailValid = true;
+                errors.textContent = " ";
+                // console.log("email ok");
             } else {
-                isValid = false;
+                mailValid = false;
+                errors.innerHTML = "email invalid";
+                // console.log(errors.innerHTML);
+
             }
+        }
+        //=====================================
+        if (currentInput.id === "password") {
+
+            if (numberCharac.test(currentInput.value)) {
+                // console.log("password accepted");
+                pwd = currentInput.value;
+                pwdValid = true;
+                errors.textContent = " ";
+            } else {
+                pwdValid = false;
+                errors.innerHTML= "doesn't respond the conditions";
+                // console.log(errors.innerHTML);
+            }
+        }
+        //=============================================
+        if (currentInput.id === "confirmPassword") {
+            // console.log(currentInput.value === pwd);
+            
+            if (currentInput.value === pwd ) {
+                // console.log(currentInput.value);
+                confirmPwdValid = true;
+                errors.textContent = " ";
+            } else {
+                confirmPwdValid = false;
+                errors.textContent = "incorrect, retry!";
+                // console.log(errors.innerHTML);
+                
+            }
+        }
+
+        if(userNameValid  && mailValid  && pwdValid  && confirmPwdValid ) {
+            isValid = true;
+        } else {
+            isValid = false;
         }
     })
 }
 
-
+// console.log(numberCharac);
 
 
 

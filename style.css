@@ -7,3 +7,10 @@ body {
     background: linear-gradient(0deg, #304d53 15%, #090979 44%, #170dc4 97%); 
 }
 
+label {
+    color: #ffffff;
+}
+
+small {
+    color: #ff0000;
+}
