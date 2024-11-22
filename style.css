@@ -4,7 +4,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background: rgb(2,0,36);
-    background: linear-gradient(0deg, #304d53 15%, #090979 44%, #170dc4 97%); 
+    background: linear-gradient(0deg, #304d53 6%, #090979 48%, #170dc4 97%); 
 }
 
 label {
